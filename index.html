@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PickMyAI — Find Your Perfect AI Tool</title>
+<meta name="description" content="Answer 5 questions. Get three perfectly matched AI tools instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --lavender:#f0eeff;
+  --lavender2:#e4deff;
+  --lavender3:#c9bfff;
+  --pink:#fff0f5;
+  --pink2:#ffd6e7;
+  --mint:#edfaf5;
+  --mint2:#b8f0d8;
+  --bg:#fdfcff;
+  --bg2:#f7f5ff;
+  --ink:#1a1730;
+  --ink2:#3d3760;
+  --ink3:#8b86a8;
+  --ink4:#b8b4ce;
+  --accent:#7c6ef0;
+  --accent2:#a78bfa;
+  --gold:#d4a853;
+  --r:16px;--r-sm:10px;--r-lg:24px;--r-xl:32px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --shadow:0 4px 32px rgba(124,110,240,0.08);
+  --shadow-lg:0 8px 48px rgba(124,110,240,0.14);
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* ── GRADIENT BG ── */
+body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(196,181,253,0.18) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 90% 10%,rgba(249,168,212,0.13) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 50% 100%,rgba(167,243,208,0.12) 0%,transparent 60%);pointer-events:none;z-index:0}
+.hero,.nav,section,.matcher-wrap,.email-sec,footer{position:relative;z-index:1}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(253,252,255,0.75);backdrop-filter:saturate(200%) blur(24px);border-bottom:1px solid rgba(196,181,253,0.2)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-gem{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:9px;display:grid;place-items:center;box-shadow:0 2px 12px rgba(124,110,240,0.35)}
+.logo-gem svg{width:14px;height:14px}
+.logo-name{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);letter-spacing:0.02em}
+.nav-pill{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;padding:8px 20px;border-radius:100px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;transition:all 0.25s;box-shadow:0 2px 12px rgba(124,110,240,0.3);letter-spacing:0.01em}
+.nav-pill:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(124,110,240,0.4)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:90px 24px 80px;text-align:center}
+.hero-chip{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--lavender3);color:var(--accent);padding:6px 16px 6px 12px;border-radius:100px;font-size:12px;font-weight:500;margin-bottom:32px;box-shadow:0 2px 12px rgba(124,110,240,0.1);animation:up 0.7s ease both;letter-spacing:0.02em}
+.chip-dot{width:7px;height:7px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%}
+.hero-h1{font-family:var(--serif);font-size:clamp(52px,7vw,88px);font-weight:300;line-height:1.02;letter-spacing:0.01em;color:var(--ink);margin-bottom:24px;animation:up 0.7s 0.1s ease both}
+.hero-h1 em{font-style:italic;background:linear-gradient(135deg,var(--accent),#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-p{font-size:17px;font-weight:300;color:var(--ink3);max-width:440px;line-height:1.7;margin-bottom:48px;animation:up 0.7s 0.2s ease both}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:up 0.7s 0.3s ease both}
+.btn-main{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;padding:15px 34px;border-radius:100px;font-family:var(--sans);font-size:15px;font-weight:500;cursor:pointer;transition:all 0.25s;box-shadow:0 4px 20px rgba(124,110,240,0.3);display:inline-flex;align-items:center;gap:8px}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,110,240,0.4)}
+.btn-out{background:white;color:var(--ink2);border:1px solid var(--lavender2);padding:15px 26px;border-radius:100px;font-family:var(--sans);font-size:15px;font-weight:400;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.btn-out:hover{border-color:var(--lavender3);background:var(--lavender)}
+.hero-nums{display:flex;gap:52px;margin-top:72px;animation:up 0.7s 0.4s ease both}
+.hnum-n{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--ink);display:block;line-height:1}
+.hnum-l{font-size:12px;color:var(--ink4);margin-top:4px;font-weight:400;letter-spacing:0.03em}
+
+/* ── HOW ── */
+.how{max-width:940px;margin:0 auto;padding:96px 24px}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px}
+.sec-h{font-family:var(--serif);font-size:clamp(34px,4vw,50px);font-weight:300;line-height:1.1;letter-spacing:0.01em;color:var(--ink);margin-bottom:52px}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.how-card{background:white;border:1px solid rgba(196,181,253,0.3);border-radius:var(--r-lg);padding:28px 22px;box-shadow:var(--shadow);transition:all 0.25s}
+.how-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--lavender3)}
+.how-num{font-family:var(--serif);font-size:42px;font-weight:300;background:linear-gradient(135deg,var(--lavender3),var(--pink2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;line-height:1}
+.how-t{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.how-d{font-size:13px;color:var(--ink3);line-height:1.65;font-weight:300}
+
+/* ── MATCHER WRAP ── */
+.matcher-wrap{padding:96px 24px;background:linear-gradient(180deg,var(--lavender) 0%,var(--bg) 100%);border-top:1px solid rgba(196,181,253,0.25)}
+.matcher-inner{max-width:600px;margin:0 auto}
+.matcher-top{text-align:center;margin-bottom:40px}
+
+/* ── CARD ── */
+.mcard{background:white;border-radius:var(--r-xl);box-shadow:var(--shadow-lg);border:1px solid rgba(196,181,253,0.25);overflow:hidden}
+.mcard-prog{height:3px;background:var(--lavender2)}
+.mcard-bar{height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;transition:width 0.4s cubic-bezier(0.4,0,0.2,1)}
+.mcard-body{padding:44px 44px 40px}
+
+/* Steps */
+.q-step{display:none}
+.q-step.active{display:block;animation:up 0.28s ease}
+.step-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.step-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink4)}
+.step-bk{background:none;border:none;cursor:pointer;font-size:12px;font-family:var(--sans);color:var(--ink4);padding:0;transition:color 0.15s;display:flex;align-items:center;gap:3px}
+.step-bk:hover{color:var(--ink2)}
+.step-bk[hidden]{visibility:hidden;pointer-events:none}
+.step-q{font-family:var(--serif);font-size:28px;font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:8px;letter-spacing:0.01em}
+.step-hint{font-size:13px;color:var(--ink3);margin-bottom:28px;font-weight:300;line-height:1.55}
+
+/* Options */
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.opts-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px}
+.opt{display:flex;align-items:center;gap:13px;padding:13px 16px;border:1px solid var(--lavender2);border-radius:var(--r);cursor:pointer;background:white;color:var(--ink);font-family:var(--sans);text-align:left;width:100%;transition:all 0.2s}
+.opt:hover{border-color:var(--lavender3);background:var(--lavender);transform:translateX(2px)}
+.opt.sel{border-color:var(--accent);background:linear-gradient(135deg,var(--lavender),#ede9ff);box-shadow:0 2px 12px rgba(124,110,240,0.15)}
+.opt-ico{font-size:18px;width:30px;text-align:center;flex-shrink:0}
+.opt-body{flex:1;min-width:0}
+.opt-t{font-size:13px;font-weight:500;display:block;margin-bottom:2px;color:var(--ink)}
+.opt-d{font-size:11px;color:var(--ink3);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:300}
+.opt.sel .opt-t{color:var(--accent)}
+
+/* Footer */
+.step-foot{display:flex;justify-content:flex-end}
+.btn-go{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;padding:13px 30px;border-radius:100px;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;gap:7px;box-shadow:0 3px 16px rgba(124,110,240,0.3)}
+.btn-go:hover{transform:translateY(-1px);box-shadow:0 5px 24px rgba(124,110,240,0.4)}
+.btn-go:disabled{opacity:0.3;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* Loading */
+.loading{display:none;flex-direction:column;align-items:center;justify-content:center;padding:72px 0;gap:20px;text-align:center;min-height:300px}
+.loading.on{display:flex;animation:fadeIn 0.2s ease}
+.spin-ring{width:44px;height:44px;border:2px solid var(--lavender2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.75s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-h{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--ink)}
+.load-p{font-size:13px;color:var(--ink3);font-weight:300}
+
+/* Results */
+.results{display:none}
+.results.on{display:block;animation:up 0.3s ease}
+.res-h{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);margin-bottom:4px;letter-spacing:0.01em}
+.res-sub{font-size:12px;color:var(--ink4);margin-bottom:24px}
+.tool-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.tool{background:white;border:1px solid var(--lavender2);border-radius:var(--r);padding:20px 22px;transition:all 0.2s}
+.tool:hover{border-color:var(--lavender3);transform:translateY(-1px);box-shadow:var(--shadow)}
+.tool.top{border-color:var(--accent);background:linear-gradient(135deg,var(--lavender),#ede9ff);box-shadow:0 4px 24px rgba(124,110,240,0.15)}
+.tool-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.tool-name{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);margin-bottom:2px}
+.tool-tag{font-size:12px;color:var(--ink3);font-weight:300}
+.tbadge{font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;flex-shrink:0;white-space:nowrap}
+.tb-best{background:linear-gradient(135deg,var(--lavender2),#ede9ff);color:var(--accent)}
+.tb-alt{background:var(--mint);color:var(--green,#1a6e31)}
+.tb-pro{background:var(--pink);color:#b5547a}
+.tool-why{font-size:13px;line-height:1.65;color:var(--ink2);margin-bottom:14px;font-weight:300}
+.tool-ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.tool-price{font-size:13px;font-weight:500;color:var(--ink2)}
+.tool-link{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--lavender3);padding:6px 14px;border-radius:100px;transition:all 0.2s;display:inline-flex;align-items:center;gap:4px;font-weight:500}
+.tool-link:hover{background:var(--lavender);border-color:var(--accent)}
+.res-acts{display:flex;gap:8px;flex-wrap:wrap}
+.btn-rs{background:transparent;border:1px solid var(--lavender2);color:var(--ink3);padding:10px 20px;border-radius:100px;font-family:var(--sans);font-size:13px;cursor:pointer;transition:all 0.2s}
+.btn-rs:hover{border-color:var(--lavender3);color:var(--ink2)}
+.btn-sh{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:10px 20px;border-radius:100px;font-family:var(--sans);font-size:13px;cursor:pointer;transition:all 0.2s;font-weight:500}
+.btn-sh:hover{background:var(--accent);color:white}
+
+/* Email */
+.email-sec{padding:100px 24px;text-align:center;background:linear-gradient(135deg,#1a1730,#2d1b5e)}
+.email-inner{max-width:480px;margin:0 auto}
+.email-h{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:300;color:white;margin-bottom:12px;letter-spacing:0.01em}
+.email-p{font-size:15px;color:rgba(255,255,255,0.45);margin-bottom:36px;font-weight:300;line-height:1.7}
+.email-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.email-in{flex:1;min-width:200px;max-width:280px;background:rgba(255,255,255,0.07);border:1px solid rgba(196,181,253,0.25);color:white;padding:13px 20px;border-radius:100px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color 0.2s}
+.email-in::placeholder{color:rgba(255,255,255,0.25)}
+.email-in:focus{border-color:rgba(196,181,253,0.5)}
+.email-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;padding:13px 26px;border-radius:100px;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;box-shadow:0 3px 16px rgba(124,110,240,0.35);white-space:nowrap}
+.email-btn:hover{transform:translateY(-1px);box-shadow:0 5px 24px rgba(124,110,240,0.5)}
+.email-note{font-size:11px;color:rgba(255,255,255,0.2);margin-top:14px;font-weight:300}
+.email-ok{color:#86efac;font-size:13px;margin-top:12px;display:none}
+
+/* Footer */
+footer{padding:26px 48px;border-top:1px solid rgba(196,181,253,0.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:var(--bg)}
+.foot-logo{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);letter-spacing:0.02em}
+.foot-copy{font-size:12px;color:var(--ink4);font-weight:300}
+
+/* Anims */
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .mcard-body{padding:28px 22px 24px}
+  .opts-2{grid-template-columns:1fr}
+  .hero-nums{gap:28px}
+  .how-grid{grid-template-columns:1fr 1fr}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-gem">
+      <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="2.8" fill="white"/><path d="M7 1.5v2M7 10.5v2M1.5 7h2M10.5 7h2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+    <span class="logo-name">PickMyAI</span>
+  </a>
+  <button class="nav-pill" onclick="scrollToMatcher()">Find my tools →</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-chip"><div class="chip-dot"></div>500+ AI tools · Free forever</div>
+  <h1 class="hero-h1">Find the right AI.<br><em>Not just any AI.</em></h1>
+  <p class="hero-p">Answer five simple questions. Get three hand-picked AI tools matched perfectly to your needs, budget, and industry.</p>
+  <div class="hero-btns">
+    <button class="btn-main" onclick="scrollToMatcher()">Start matching <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="btn-out" onclick="scrollToHow()">How it works</button>
+  </div>
+  <div class="hero-nums">
+    <div><span class="hnum-n">500+</span><div class="hnum-l">Tools tracked</div></div>
+    <div><span class="hnum-n">5</span><div class="hnum-l">Questions</div></div>
+    <div><span class="hnum-n">Free</span><div class="hnum-l">Always</div></div>
+  </div>
+</div>
+
+<!-- HOW -->
+<div class="how" id="how">
+  <p class="sec-label">How it works</p>
+  <h2 class="sec-h">Simple by design.</h2>
+  <div class="how-grid">
+    <div class="how-card"><div class="how-num">01</div><div class="how-t">Tell us your goal</div><p class="how-d">Writing, coding, automation — pick what you need AI for.</p></div>
+    <div class="how-card"><div class="how-num">02</div><div class="how-t">Set your constraints</div><p class="how-d">Budget, skill level, industry. We tailor to who you are.</p></div>
+    <div class="how-card"><div class="how-num">03</div><div class="how-t">AI does the work</div><p class="how-d">We analyse 500+ tools and surface your perfect three.</p></div>
+    <div class="how-card"><div class="how-num">04</div><div class="how-t">Start today</div><p class="how-d">Direct links, real pricing, honest reasons. No fluff.</p></div>
+  </div>
+</div>
+
+<!-- MATCHER -->
+<div class="matcher-wrap" id="matcher">
+  <div class="matcher-inner">
+    <div class="matcher-top">
+      <p class="sec-label">The matcher</p>
+      <h2 class="sec-h" style="margin-bottom:0">Find your tools.</h2>
+    </div>
+
+    <div class="mcard" id="mcard">
+      <div class="mcard-prog"><div class="mcard-bar" id="mbar"></div></div>
+      <div class="mcard-body">
+
+        <!-- Q1 -->
+        <div class="q-step active" id="q1">
+          <div class="step-meta"><span class="step-tag">1 of 5</span><button class="step-bk" hidden></button></div>
+          <h3 class="step-q">What do you need AI for?</h3>
+          <p class="step-hint">Pick your primary use case.</p>
+          <div class="opts-2">
+            <button class="opt" onclick="pick(this,'goal','writing')"><span class="opt-ico">✍️</span><span class="opt-body"><span class="opt-t">Writing & content</span><span class="opt-d">Blogs, emails, copy</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','code')"><span class="opt-ico">💻</span><span class="opt-body"><span class="opt-t">Coding & dev</span><span class="opt-d">Apps, debug, scripts</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','images')"><span class="opt-ico">🎨</span><span class="opt-body"><span class="opt-t">Images & design</span><span class="opt-d">Art, visuals, assets</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','automation')"><span class="opt-ico">⚡</span><span class="opt-body"><span class="opt-t">Automation</span><span class="opt-d">Workflows, apps</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','research')"><span class="opt-ico">🔍</span><span class="opt-body"><span class="opt-t">Research & analysis</span><span class="opt-d">Summarise, insights</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','video')"><span class="opt-ico">🎬</span><span class="opt-body"><span class="opt-t">Video & audio</span><span class="opt-d">Edit, generate, dub</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','marketing')"><span class="opt-ico">📣</span><span class="opt-body"><span class="opt-t">Marketing & SEO</span><span class="opt-d">Campaigns, ads</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','customer')"><span class="opt-ico">💬</span><span class="opt-body"><span class="opt-t">Customer support</span><span class="opt-d">Chatbots, helpdesk</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','data')"><span class="opt-ico">📊</span><span class="opt-body"><span class="opt-t">Data & spreadsheets</span><span class="opt-d">Analyse, visualise</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','productivity')"><span class="opt-ico">🗂️</span><span class="opt-body"><span class="opt-t">Productivity</span><span class="opt-d">Notes, meetings</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','hr')"><span class="opt-ico">🧑‍💼</span><span class="opt-body"><span class="opt-t">HR & recruitment</span><span class="opt-d">CVs, onboarding</span></span></button>
+            <button class="opt" onclick="pick(this,'goal','finance')"><span class="opt-ico">💰</span><span class="opt-body"><span class="opt-t">Finance & legal</span><span class="opt-d">Reports, forecasts</span></span></button>
+          </div>
+          <div class="step-foot"><button class="btn-go" id="next1" onclick="next(1)" disabled>Continue →</button></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-step" id="q2">
+          <div class="step-meta"><span class="step-tag">2 of 5</span><button class="step-bk" onclick="back(2)">← Back</button></div>
+          <h3 class="step-q">What's your monthly budget?</h3>
+          <p class="step-hint">Great free tools exist — be honest and we'll find the best fit.</p>
+          <div class="opts">
+            <button class="opt" onclick="pick(this,'budget','free')"><span class="opt-ico">🆓</span><span class="opt-body"><span class="opt-t">Free only</span><span class="opt-d">No subscriptions, free tiers only</span></span></button>
+            <button class="opt" onclick="pick(this,'budget','under20')"><span class="opt-ico">💷</span><span class="opt-body"><span class="opt-t">Under £20 / month</span><span class="opt-d">Side project or personal use</span></span></button>
+            <button class="opt" onclick="pick(this,'budget','20to100')"><span class="opt-ico">💰</span><span class="opt-body"><span class="opt-t">£20 – £100 / month</span><span class="opt-d">Growing business or serious creator</span></span></button>
+            <button class="opt" onclick="pick(this,'budget','100to500')"><span class="opt-ico">🏢</span><span class="opt-body"><span class="opt-t">£100 – £500 / month</span><span class="opt-d">Small business or team</span></span></button>
+            <button class="opt" onclick="pick(this,'budget','500plus')"><span class="opt-ico">🚀</span><span class="opt-body"><span class="opt-t">£500+ / month</span><span class="opt-d">Enterprise or serious scale</span></span></button>
+          </div>
+          <div class="step-foot"><button class="btn-go" id="next2" onclick="next(2)" disabled>Continue →</button></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-step" id="q3">
+          <div class="step-meta"><span class="step-tag">3 of 5</span><button class="step-bk" onclick="back(3)">← Back</button></div>
+          <h3 class="step-q">How technical are you?</h3>
+          <p class="step-hint">No judgment — this just calibrates the recommendations.</p>
+          <div class="opts">
+            <button class="opt" onclick="pick(this,'skill','beginner')"><span class="opt-ico">😊</span><span class="opt-body"><span class="opt-t">Complete beginner</span><span class="opt-d">I want it to just work, no setup at all</span></span></button>
+            <button class="opt" onclick="pick(this,'skill','intermediate')"><span class="opt-ico">🙂</span><span class="opt-body"><span class="opt-t">Some experience</span><span class="opt-d">I can follow guides and troubleshoot</span></span></button>
+            <button class="opt" onclick="pick(this,'skill','advanced')"><span class="opt-ico">🧑‍💻</span><span class="opt-body"><span class="opt-t">Developer / technical</span><span class="opt-d">Comfortable with APIs, code, config</span></span></button>
+          </div>
+          <div class="step-foot"><button class="btn-go" id="next3" onclick="next(3)" disabled>Continue →</button></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="q-step" id="q4">
+          <div class="step-meta"><span class="step-tag">4 of 5</span><button class="step-bk" onclick="back(4)">← Back</button></div>
+          <h3 class="step-q">What's your industry?</h3>
+          <p class="step-hint">We surface tools trusted in your specific space.</p>
+          <div class="opts-2">
+            <button class="opt" onclick="pick(this,'industry','entertainment')"><span class="opt-ico">🎬</span><span class="opt-body"><span class="opt-t">Entertainment</span><span class="opt-d">Film, music, streaming</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','ecommerce')"><span class="opt-ico">🛍️</span><span class="opt-body"><span class="opt-t">E-commerce</span><span class="opt-d">Shops, retail, DTC</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','tech')"><span class="opt-ico">🚀</span><span class="opt-body"><span class="opt-t">SaaS & tech</span><span class="opt-d">Software, startups</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','agency')"><span class="opt-ico">🎯</span><span class="opt-body"><span class="opt-t">Agency</span><span class="opt-d">Marketing, design</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','smallbiz')"><span class="opt-ico">🏪</span><span class="opt-body"><span class="opt-t">Small business</span><span class="opt-d">Local, restaurants</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','creative')"><span class="opt-ico">✨</span><span class="opt-body"><span class="opt-t">Freelancer / creator</span><span class="opt-d">Solo, YouTube, content</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','healthcare')"><span class="opt-ico">🏥</span><span class="opt-body"><span class="opt-t">Healthcare</span><span class="opt-d">Clinics, health tech</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','education')"><span class="opt-ico">📚</span><span class="opt-body"><span class="opt-t">Education</span><span class="opt-d">Schools, edtech</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','finance')"><span class="opt-ico">🏦</span><span class="opt-body"><span class="opt-t">Finance & legal</span><span class="opt-d">Fintech, law</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','realestate')"><span class="opt-ico">🏠</span><span class="opt-body"><span class="opt-t">Real estate</span><span class="opt-d">Agents, property</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','nonprofit')"><span class="opt-ico">🤝</span><span class="opt-body"><span class="opt-t">Non-profit</span><span class="opt-d">NGOs, charities</span></span></button>
+            <button class="opt" onclick="pick(this,'industry','other')"><span class="opt-ico">🌐</span><span class="opt-body"><span class="opt-t">Other</span><span class="opt-d">Manufacturing, logistics</span></span></button>
+          </div>
+          <div class="step-foot"><button class="btn-go" id="next4" onclick="next(4)" disabled>Continue →</button></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q-step" id="q5">
+          <div class="step-meta"><span class="step-tag">5 of 5</span><button class="step-bk" onclick="back(5)">← Back</button></div>
+          <h3 class="step-q">Do you need tools that connect?</h3>
+          <p class="step-hint">Integrated stacks are powerful. Standalone tools are flexible.</p>
+          <div class="opts">
+            <button class="opt" onclick="pick(this,'integration','yes')"><span class="opt-ico">🔗</span><span class="opt-body"><span class="opt-t">Yes — integrated workflow</span><span class="opt-d">Tools that connect and work together</span></span></button>
+            <button class="opt" onclick="pick(this,'integration','no')"><span class="opt-ico">🧩</span><span class="opt-body"><span class="opt-t">No — individual tools are fine</span><span class="opt-d">I'll use them separately</span></span></button>
+            <button class="opt" onclick="pick(this,'integration','unsure')"><span class="opt-ico">🤷</span><span class="opt-body"><span class="opt-t">Not sure — just pick the best</span><span class="opt-d">I'll figure integration out later</span></span></button>
+          </div>
+          <div class="step-foot">
+            <button class="btn-go" id="next5" onclick="getResults()" disabled>
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 4.5H14l-3.6 2.6L11.9 14 8 11.4 4.1 14l1.5-4.9L2 6.5h4.5L8 2z" fill="white"/></svg>
+              Find my AI tools
+            </button>
+          </div>
+        </div>
+
+        <!-- LOADING -->
+        <div class="loading" id="loadingScreen">
+          <div class="spin-ring"></div>
+          <div class="load-h">Finding your matches…</div>
+          <p class="load-p">Analysing 500+ tools against your profile</p>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results" id="resultsScreen">
+          <div class="res-h">Your matches ✦</div>
+          <div class="res-sub" id="resSub"></div>
+          <div class="tool-list" id="toolList"></div>
+          <div class="res-acts">
+            <button class="btn-rs" onclick="restart()">↺ Start over</button>
+            <button class="btn-sh" onclick="share()">Share results →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMAIL -->
+<div class="email-sec">
+  <div class="email-inner">
+    <h2 class="email-h">Stay ahead of AI.</h2>
+    <p class="email-p">Weekly digest of the best new tools, honest reviews, and what's actually worth your money.</p>
+    <div class="email-row">
+      <input type="email" class="email-in" placeholder="you@example.com" id="emailIn" />
+      <button class="email-btn" onclick="subscribe()">Subscribe</button>
+    </div>
+    <p class="email-note">No spam. Unsubscribe any time.</p>
+    <p class="email-ok" id="emailOk">✓ You're on the list!</p>
+  </div>
+</div>
+
+<footer>
+  <span class="foot-logo">PickMyAI</span>
+  <span class="foot-copy">© 2026 PickMyAI · Built with love & AI</span>
+</footer>
+
+<script>
+const A={};let step=1;
+
+function pick(btn,key,val){
+  btn.closest('.opts,.opts-2').querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');A[key]=val;
+  const nb=document.getElementById('next'+step);if(nb)nb.disabled=false;
+}
+
+function showStep(n){
+  document.querySelectorAll('.q-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('loadingScreen').classList.remove('on');
+  document.getElementById('resultsScreen').classList.remove('on');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('mbar').style.width=(n/5*100)+'%';
+  step=n;
+  document.getElementById('mcard').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function next(from){const keys=['goal','budget','skill','industry','integration'];if(!A[keys[from-1]])return;showStep(from+1);}
+function back(from){showStep(from-1);}
+
+async function getResults(){
+  if(!A.integration)return;
+  document.querySelectorAll('.q-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('resultsScreen').classList.remove('on');
+  document.getElementById('loadingScreen').classList.add('on');
+  document.getElementById('mbar').style.width='100%';
+
+  let tools=null;
+  try{
+    const r=await fetch('/api/recommend',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({goal:A.goal,budget:A.budget,skill:A.skill,industry:A.industry,integration:A.integration})
+    });
+    const data=await r.json();
+    if(Array.isArray(data)&&data.length===3)tools=data;
+  }catch(e){tools=null;}
+
+  // Curated fallbacks per goal — shown only if all models fail
+  if(!tools){
+    const fb={
+      writing:[{name:'Claude',tagline:'Best AI for thoughtful writing',why:'Excels at long-form, nuanced content across any format or tone.',price:'Free / $20/mo',badge:'best match',url:'https://claude.ai'},{name:'Jasper',tagline:'Marketing copy at scale',why:'Built for marketing teams with brand voice training and templates.',price:'$39/mo',badge:'budget pick',url:'https://jasper.ai'},{name:'Notion AI',tagline:'Write inside your workspace',why:'Combines writing, notes, and project management in one place.',price:'$8/mo add-on',badge:'power user',url:'https://notion.so'}],
+      code:[{name:'Cursor',tagline:'AI-native code editor',why:'Understands your entire codebase for smarter context-aware completions.',price:'Free / $20/mo',badge:'best match',url:'https://cursor.sh'},{name:'GitHub Copilot',tagline:'Code completion everywhere',why:'Works inside VS Code and integrates seamlessly with your git workflow.',price:'$10/mo',badge:'budget pick',url:'https://github.com/features/copilot'},{name:'v0 by Vercel',tagline:'Generate UI with prompts',why:'Turn text descriptions into production-ready React components instantly.',price:'Free / $20/mo',badge:'power user',url:'https://v0.dev'}],
+      images:[{name:'Midjourney',tagline:'Highest quality AI imagery',why:'Produces the most stunning professional images of any AI tool available.',price:'$10/mo',badge:'best match',url:'https://midjourney.com'},{name:'Adobe Firefly',tagline:'Safe for commercial use',why:'Trained on licensed content so output is legally safe for business.',price:'Free / $5/mo',badge:'budget pick',url:'https://firefly.adobe.com'},{name:'DALL-E 3',tagline:'Best prompt understanding',why:'Follows complex creative instructions more accurately than competitors.',price:'Included in ChatGPT Plus',badge:'power user',url:'https://openai.com/dall-e-3'}],
+      automation:[{name:'Zapier',tagline:'Connect 6,000+ apps instantly',why:'No-code automation with thousands of pre-built templates for any workflow.',price:'Free / $20/mo',badge:'best match',url:'https://zapier.com'},{name:'Make',tagline:'Visual workflow builder',why:'More powerful than Zapier with better pricing for complex automations.',price:'Free / $9/mo',badge:'budget pick',url:'https://make.com'},{name:'n8n',tagline:'Self-hosted automation',why:'Unlimited workflows and full control — perfect for technical teams.',price:'Free (self-host)',badge:'power user',url:'https://n8n.io'}],
+      research:[{name:'Perplexity AI',tagline:'AI search with live citations',why:'Answers research questions with real verifiable sources you can check.',price:'Free / $20/mo',badge:'best match',url:'https://perplexity.ai'},{name:'NotebookLM',tagline:'AI over your own documents',why:'Upload your sources and ask questions directly — ideal for deep research.',price:'Free',badge:'budget pick',url:'https://notebooklm.google.com'},{name:'Elicit',tagline:'Academic research assistant',why:'Designed for systematic research with intelligent paper summaries.',price:'Free / $12/mo',badge:'power user',url:'https://elicit.com'}],
+      video:[{name:'Descript',tagline:'Edit video by editing text',why:'Remove filler words and cut scenes just by editing a transcript.',price:'Free / $24/mo',badge:'best match',url:'https://descript.com'},{name:'CapCut AI',tagline:'Easy AI video editing',why:'Free and beginner-friendly with powerful auto-captions and AI effects.',price:'Free / $8/mo',badge:'budget pick',url:'https://capcut.com'},{name:'Runway',tagline:'Next-gen AI video generation',why:'Generate and edit video from text prompts — the most capable AI video tool.',price:'$15/mo',badge:'power user',url:'https://runwayml.com'}],
+      marketing:[{name:'Surfer SEO',tagline:'AI content optimisation',why:'Ranks your content higher by analysing top pages in your niche.',price:'$89/mo',badge:'best match',url:'https://surferseo.com'},{name:'Copy.ai',tagline:'Marketing copy in seconds',why:'Generates ads, emails, and landing pages with minimal prompting.',price:'Free / $36/mo',badge:'budget pick',url:'https://copy.ai'},{name:'Semrush AI',tagline:'Full-stack marketing intelligence',why:'Combines SEO, ads, social, and content tools in one powerful platform.',price:'$129/mo',badge:'power user',url:'https://semrush.com'}],
+      customer:[{name:'Intercom Fin',tagline:'AI customer support agent',why:'Resolves up to 50% of support tickets automatically with high accuracy.',price:'$39/mo',badge:'best match',url:'https://intercom.com'},{name:'Tidio',tagline:'Affordable AI chat for SMBs',why:'Easy-to-set-up live chat and AI bot combo built for small businesses.',price:'Free / $19/mo',badge:'budget pick',url:'https://tidio.com'},{name:'Zendesk AI',tagline:'Enterprise support automation',why:'Deep CRM integration with intelligent ticket routing and agent assist.',price:'$55/mo',badge:'power user',url:'https://zendesk.com'}],
+      data:[{name:'Julius AI',tagline:'Chat with your data',why:'Upload any spreadsheet and ask questions in plain English instantly.',price:'Free / $20/mo',badge:'best match',url:'https://julius.ai'},{name:'ChatCSV',tagline:'Instant CSV analysis',why:'The fastest way to extract insights from a CSV without writing code.',price:'Free / $10/mo',badge:'budget pick',url:'https://chatcsv.co'},{name:'Hex',tagline:'Collaborative data notebooks',why:'Combines SQL, Python, and AI in one notebook for serious data teams.',price:'Free / $24/mo',badge:'power user',url:'https://hex.tech'}],
+      productivity:[{name:'Notion AI',tagline:'Think, write, plan in one app',why:'Integrates AI directly into your notes, docs, and project management.',price:'$8/mo add-on',badge:'best match',url:'https://notion.so'},{name:'Otter.ai',tagline:'AI meeting notes',why:'Transcribes and summarises meetings automatically so you stay focused.',price:'Free / $10/mo',badge:'budget pick',url:'https://otter.ai'},{name:'Mem',tagline:'Self-organising AI workspace',why:'Automatically connects your notes and surfaces context when you need it.',price:'$14/mo',badge:'power user',url:'https://mem.ai'}],
+      hr:[{name:'Manatal',tagline:'AI recruitment platform',why:'Scores candidates automatically and integrates with all major job boards.',price:'$15/mo',badge:'best match',url:'https://manatal.com'},{name:'Kickresume',tagline:'AI CV and screening tools',why:'Helps both candidates and HR teams create and screen CVs with AI.',price:'Free / $10/mo',badge:'budget pick',url:'https://kickresume.com'},{name:'Leena AI',tagline:'Enterprise HR automation',why:'Automates onboarding, policies, and employee queries at enterprise scale.',price:'Custom',badge:'power user',url:'https://leena.ai'}],
+      finance:[{name:'Vic.ai',tagline:'AI accounts payable',why:'Automates invoice processing and approvals with industry-leading accuracy.',price:'Custom',badge:'best match',url:'https://vic.ai'},{name:'Dext',tagline:'Receipt and expense capture',why:'Snap receipts and auto-sync to your accounting software in seconds.',price:'$20/mo',badge:'budget pick',url:'https://dext.com'},{name:'Kira Systems',tagline:'AI contract analysis',why:'Reviews contracts and extracts key clauses in seconds for legal teams.',price:'Custom',badge:'power user',url:'https://kirasystems.com'}]
+    };
+    tools=fb[A.goal]||fb.writing;
+  }
+  renderResults(tools);
+}
+
+function renderResults(tools){
+  document.getElementById('loadingScreen').classList.remove('on');
+  document.getElementById('resultsScreen').classList.add('on');
+  const gl={writing:'writing',code:'coding',images:'images',automation:'automation',research:'research',video:'video',marketing:'marketing',customer:'customer support',data:'data',productivity:'productivity',hr:'HR',finance:'finance'};
+  document.getElementById('resSub').textContent=`${gl[A.goal]||A.goal} · ${A.budget} · ${A.skill}`;
+  const bc={'best match':'tb-best','budget pick':'tb-alt','power user':'tb-pro'};
+  document.getElementById('toolList').innerHTML=tools.map((t,i)=>`
+    <div class="tool ${i===0?'top':''}">
+      <div class="tool-hd">
+        <div><div class="tool-name">${t.name}</div><div class="tool-tag">${t.tagline}</div></div>
+        <span class="tbadge ${i===0?'tb-best':(bc[t.badge]||'tb-pro')}">${t.badge}</span>
+      </div>
+      <div class="tool-why">${t.why}</div>
+      <div class="tool-ft">
+        <span class="tool-price">${t.price}</span>
+        <a href="${t.url}" target="_blank" rel="noopener" class="tool-link">Visit site <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>`).join('');
+  document.getElementById('mcard').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function restart(){
+  Object.keys(A).forEach(k=>delete A[k]);
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  document.querySelectorAll('.btn-go').forEach(b=>b.disabled=true);
+  document.getElementById('resultsScreen').classList.remove('on');
+  document.getElementById('loadingScreen').classList.remove('on');
+  showStep(1);
+}
+
+function share(){
+  if(navigator.share)navigator.share({title:'My AI matches from PickMyAI',url:location.href});
+  else{navigator.clipboard.writeText(location.href);alert('Link copied!');}
+}
+
+function scrollToMatcher(){document.getElementById('matcher').scrollIntoView({behavior:'smooth'});}
+function scrollToHow(){document.getElementById('how').scrollIntoView({behavior:'smooth'});}
+
+function subscribe(){
+  const e=document.getElementById('emailIn').value;
+  if(!e.includes('@')){alert('Enter a valid email');return;}
+  document.getElementById('emailOk').style.display='block';
+  document.getElementById('emailIn').value='';
+}
+</script>
+</body>
+</html>

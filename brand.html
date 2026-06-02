@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PickMyAI — Brand Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --lavender:#f0eeff;--lavender2:#e4deff;--lavender3:#c9bfff;
+  --pink:#fff0f5;--pink2:#ffd6e7;
+  --mint:#edfaf5;--mint2:#b8f0d8;
+  --bg:#fdfcff;--bg2:#f7f5ff;
+  --ink:#1a1730;--ink2:#3d3760;--ink3:#8b86a8;--ink4:#b8b4ce;
+  --accent:#7c6ef0;--accent2:#a78bfa;--gold:#d4a853;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --shadow:0 4px 32px rgba(124,110,240,0.08);
+  --shadow-lg:0 8px 48px rgba(124,110,240,0.14);
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(196,181,253,0.15) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 90% 10%,rgba(249,168,212,0.1) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(253,252,255,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(196,181,253,0.2)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-gem{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:9px;display:grid;place-items:center;box-shadow:0 2px 12px rgba(124,110,240,0.35)}
+.logo-gem svg{width:14px;height:14px}
+.logo-name{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);letter-spacing:0.02em}
+.nav-back{background:transparent;border:1px solid var(--lavender3);color:var(--accent);padding:7px 16px;border-radius:100px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.nav-back:hover{background:var(--lavender);border-color:var(--accent)}
+
+/* LAYOUT */
+.wrap{max-width:900px;margin:0 auto;padding:72px 32px;position:relative;z-index:1}
+
+/* SECTION */
+.brand-section{margin-bottom:80px}
+.brand-section:last-child{margin-bottom:0}
+.section-tag{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.section-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,40px);font-weight:300;color:var(--ink);margin-bottom:8px;letter-spacing:0.01em;line-height:1.1}
+.section-sub{font-size:15px;color:var(--ink3);font-weight:300;line-height:1.7;max-width:600px;margin-bottom:40px}
+
+/* HERO SECTION */
+.brand-hero{text-align:center;padding:64px 0 80px;border-bottom:1px solid var(--lavender2);margin-bottom:80px}
+.brand-hero-badge{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--lavender3);color:var(--accent);padding:6px 16px 6px 12px;border-radius:100px;font-size:12px;font-weight:500;margin-bottom:24px;box-shadow:var(--shadow)}
+.brand-hero-badge-dot{width:6px;height:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%}
+.brand-hero-h{font-family:var(--serif);font-size:clamp(44px,6vw,72px);font-weight:300;color:var(--ink);line-height:1.05;letter-spacing:0.01em;margin-bottom:16px}
+.brand-hero-h em{font-style:italic;background:linear-gradient(135deg,var(--accent),#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand-hero-p{font-size:16px;color:var(--ink3);font-weight:300;max-width:500px;margin:0 auto;line-height:1.7}
+
+/* CARDS */
+.card{background:white;border:1px solid rgba(196,181,253,0.3);border-radius:20px;padding:32px;box-shadow:var(--shadow);margin-bottom:16px;transition:all 0.2s}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.card-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px}
+.card-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px}
+.card-body{font-size:14px;color:var(--ink3);line-height:1.75;font-weight:300}
+.card-body strong{color:var(--ink2);font-weight:500}
+
+/* COLORS */
+.color-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:0}
+.color-swatch{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.swatch-block{height:80px}
+.swatch-info{background:white;padding:12px;border-top:1px solid rgba(196,181,253,0.2)}
+.swatch-name{font-size:12px;font-weight:500;color:var(--ink);display:block;margin-bottom:2px}
+.swatch-hex{font-size:11px;color:var(--ink3);font-weight:300;font-family:monospace}
+
+/* TYPOGRAPHY */
+.type-row{display:flex;flex-direction:column;gap:16px}
+.type-sample{background:white;border:1px solid rgba(196,181,253,0.3);border-radius:16px;padding:24px 28px;box-shadow:var(--shadow)}
+.type-meta{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px}
+.type-specimen-serif{font-family:var(--serif);font-weight:300;color:var(--ink);line-height:1.1}
+.type-specimen-sans{font-family:var(--sans);font-weight:400;color:var(--ink);line-height:1.4}
+.type-usage{font-size:12px;color:var(--ink3);margin-top:8px;font-weight:300}
+
+/* LOGO */
+.logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.logo-card{border-radius:20px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;box-shadow:var(--shadow);min-height:180px}
+.logo-light{background:white;border:1px solid rgba(196,181,253,0.3)}
+.logo-dark{background:linear-gradient(135deg,#1a1730,#2d1b5e)}
+.logo-display{display:flex;align-items:center;gap:10px}
+.logo-gem-lg{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:11px;display:grid;place-items:center;box-shadow:0 3px 16px rgba(124,110,240,0.4)}
+.logo-gem-lg svg{width:18px;height:18px}
+.logo-gem-white{background:rgba(255,255,255,0.15);box-shadow:0 3px 16px rgba(255,255,255,0.1)}
+.logo-wordmark-lg{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:0.02em}
+.logo-wordmark-wh{color:white}
+.logo-note{font-size:12px;color:var(--ink4);font-weight:300}
+.logo-note-wh{color:rgba(255,255,255,0.4)}
+
+/* VOICE */
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.voice-card{background:white;border:1px solid rgba(196,181,253,0.3);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.voice-card.do{border-top:3px solid var(--mint2)}
+.voice-card.dont{border-top:3px solid var(--pink2)}
+.voice-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px}
+.voice-label.do{color:var(--green,#1a6e31)}
+.voice-label.dont{color:#b5547a}
+.voice-item{font-size:13px;color:var(--ink2);line-height:1.6;padding:8px 0;border-bottom:1px solid var(--lavender2);font-weight:300}
+.voice-item:last-child{border-bottom:none;padding-bottom:0}
+.voice-item::before{margin-right:6px}
+.voice-card.do .voice-item::before{content:'✓';color:var(--green,#1a6e31);font-weight:500}
+.voice-card.dont .voice-item::before{content:'✗';color:#b5547a;font-weight:500}
+
+/* TAGLINES */
+.tagline-list{display:flex;flex-direction:column;gap:8px}
+.tagline-item{background:white;border:1px solid rgba(196,181,253,0.3);border-radius:12px;padding:16px 20px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tagline-text{font-family:var(--serif);font-size:19px;font-weight:300;color:var(--ink);letter-spacing:0.01em}
+.tagline-badge{font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;white-space:nowrap}
+.tb-primary{background:var(--lavender2);color:var(--accent)}
+.tb-alt{background:var(--mint);color:#1a6e31}
+
+/* SPACING */
+.rule{border:none;border-top:1px solid var(--lavender2);margin:0 0 80px}
+
+/* GRADIENT PILLS */
+.pill-grid{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.pill{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:500;white-space:nowrap}
+
+@media(max-width:640px){
+  nav{padding:0 20px}
+  .wrap{padding:48px 20px}
+  .logo-grid,.voice-grid{grid-template-columns:1fr}
+  .color-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-gem">
+      <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="2.8" fill="white"/><path d="M7 1.5v2M7 10.5v2M1.5 7h2M10.5 7h2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+    <span class="logo-name">PickMyAI</span>
+  </a>
+  <a href="index.html" class="nav-back">← Back to site</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="brand-hero">
+    <div class="brand-hero-badge"><div class="brand-hero-badge-dot"></div>Brand Guidelines</div>
+    <h1 class="brand-hero-h">The PickMyAI<br><em>Brand Guide</em></h1>
+    <p class="brand-hero-p">Everything you need to represent PickMyAI consistently — colours, typography, voice, and logo usage.</p>
+  </div>
+
+  <!-- 01 MISSION -->
+  <div class="brand-section">
+    <p class="section-tag">01 — Mission</p>
+    <h2 class="section-title">Who we are</h2>
+    <p class="section-sub">The foundation everything else is built on.</p>
+
+    <div class="card">
+      <p class="card-label">Mission statement</p>
+      <h3 class="card-title">To cut through AI overwhelm and help every person find the right tool for their exact situation — instantly.</h3>
+    </div>
+    <div class="card">
+      <p class="card-label">Vision</p>
+      <h3 class="card-title">A world where anyone can harness AI — regardless of technical skill, budget, or industry.</h3>
+    </div>
+    <div class="card">
+      <p class="card-label">Values</p>
+      <div class="card-body">
+        <strong>Clarity over noise.</strong> We strip away hype and give honest, specific recommendations.<br><br>
+        <strong>Precision over volume.</strong> Three perfect tools beat a list of fifty mediocre ones.<br><br>
+        <strong>Accessibility over gatekeeping.</strong> AI tools should be findable by everyone, not just experts.<br><br>
+        <strong>Trust over traffic.</strong> We'd rather give an honest recommendation than a sponsored one.
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 02 LOGO -->
+  <div class="brand-section">
+    <p class="section-tag">02 — Logo</p>
+    <h2 class="section-title">The mark</h2>
+    <p class="section-sub">The logo is a gem-like icon paired with the Cormorant Garamond wordmark. Always use them together. Never stretch, recolour, or separate them.</p>
+
+    <div class="logo-grid">
+      <div class="logo-card logo-light">
+        <div class="logo-display">
+          <div class="logo-gem-lg">
+            <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="2.8" fill="white"/><path d="M7 1.5v2M7 10.5v2M1.5 7h2M10.5 7h2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="logo-wordmark-lg">PickMyAI</span>
+        </div>
+        <span class="logo-note">On light backgrounds</span>
+      </div>
+      <div class="logo-card logo-dark">
+        <div class="logo-display">
+          <div class="logo-gem-lg logo-gem-white">
+            <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="2.8" fill="white"/><path d="M7 1.5v2M7 10.5v2M1.5 7h2M10.5 7h2" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="logo-wordmark-lg logo-wordmark-wh">PickMyAI</span>
+        </div>
+        <span class="logo-note logo-note-wh">On dark backgrounds</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <p class="card-label">Logo rules</p>
+      <div class="card-body">
+        <strong>Minimum size:</strong> Never display the logo smaller than 24px tall.<br><br>
+        <strong>Clear space:</strong> Always maintain at least the height of the gem icon as clear space on all sides.<br><br>
+        <strong>Don'ts:</strong> Don't rotate, skew, apply drop shadows, change the font, or place on busy backgrounds without a container.
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 03 COLOURS -->
+  <div class="brand-section">
+    <p class="section-tag">03 — Colour</p>
+    <h2 class="section-title">The palette</h2>
+    <p class="section-sub">Soft pastels with a luxurious depth. The palette feels airy and elevated — never loud or harsh.</p>
+
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:linear-gradient(135deg,#7c6ef0,#a78bfa)"></div>
+        <div class="swatch-info"><span class="swatch-name">Violet Gradient</span><span class="swatch-hex">#7c6ef0 → #a78bfa</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#f0eeff"></div>
+        <div class="swatch-info"><span class="swatch-name">Lavender</span><span class="swatch-hex">#f0eeff</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#e4deff"></div>
+        <div class="swatch-info"><span class="swatch-name">Lavender Mid</span><span class="swatch-hex">#e4deff</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#c9bfff"></div>
+        <div class="swatch-info"><span class="swatch-name">Lavender Deep</span><span class="swatch-hex">#c9bfff</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#fff0f5"></div>
+        <div class="swatch-info"><span class="swatch-name">Blush</span><span class="swatch-hex">#fff0f5</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#ffd6e7"></div>
+        <div class="swatch-info"><span class="swatch-name">Rose</span><span class="swatch-hex">#ffd6e7</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#edfaf5"></div>
+        <div class="swatch-info"><span class="swatch-name">Mint</span><span class="swatch-hex">#edfaf5</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#b8f0d8"></div>
+        <div class="swatch-info"><span class="swatch-name">Mint Deep</span><span class="swatch-hex">#b8f0d8</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1a1730"></div>
+        <div class="swatch-info"><span class="swatch-name">Midnight</span><span class="swatch-hex">#1a1730</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#3d3760"></div>
+        <div class="swatch-info"><span class="swatch-name">Dusk</span><span class="swatch-hex">#3d3760</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#fdfcff"></div>
+        <div class="swatch-info" style="border-top:1px solid #e4deff"><span class="swatch-name">Off White</span><span class="swatch-hex">#fdfcff</span></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#d4a853"></div>
+        <div class="swatch-info"><span class="swatch-name">Gold</span><span class="swatch-hex">#d4a853</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px">
+      <p class="card-label">Colour usage rules</p>
+      <div class="card-body">
+        <strong>Primary actions:</strong> Always use the Violet Gradient (#7c6ef0 → #a78bfa) for CTAs, links, and interactive elements.<br><br>
+        <strong>Backgrounds:</strong> Use Off White (#fdfcff) as the base. Layer Lavender (#f0eeff) for section depth.<br><br>
+        <strong>Text:</strong> Midnight (#1a1730) for headings, Dusk (#3d3760) for body, #8b86a8 for secondary text.<br><br>
+        <strong>Accents:</strong> Blush for premium highlights, Mint for success states, Rose for power-user calls to action. Gold (#d4a853) for API/key UI only.
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 04 TYPOGRAPHY -->
+  <div class="brand-section">
+    <p class="section-tag">04 — Typography</p>
+    <h2 class="section-title">Type system</h2>
+    <p class="section-sub">Two typefaces, used with discipline. Cormorant Garamond for beauty and presence. DM Sans for clarity and legibility.</p>
+
+    <div class="type-row">
+      <div class="type-sample">
+        <p class="type-meta">Display — Cormorant Garamond Light 300</p>
+        <div class="type-specimen-serif" style="font-size:clamp(36px,5vw,64px)">Find the right AI.<br><em>Not just any AI.</em></div>
+        <p class="type-usage">Used for: Hero headlines, section titles, card headings, logo wordmark</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">Heading — Cormorant Garamond Regular 400</p>
+        <div class="type-specimen-serif" style="font-size:28px">Simple by design. Powerful by nature.</div>
+        <p class="type-usage">Used for: Sub-headings, result card names, pull quotes</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">Body — DM Sans Regular 400</p>
+        <div class="type-specimen-sans" style="font-size:15px">Answer five questions. Get three hand-picked AI tools matched to your exact needs, budget, and industry. No more wasted subscriptions.</div>
+        <p class="type-usage">Used for: Body copy, descriptions, UI labels</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">Label — DM Sans Medium 500, spaced</p>
+        <div class="type-specimen-sans" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8b86a8">How it works · 04 — Colour · Step 1 of 5</div>
+        <p class="type-usage">Used for: Section labels, step counters, badges, navigation hints</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">Micro — DM Sans Light 300</p>
+        <div class="type-specimen-sans" style="font-size:12px;color:#8b86a8;font-weight:300">No spam. Unsubscribe any time. · Free tiers only · Blogs, emails, copy</div>
+        <p class="type-usage">Used for: Helper text, footnotes, option descriptions, disclaimers</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 05 TAGLINES -->
+  <div class="brand-section">
+    <p class="section-tag">05 — Taglines</p>
+    <h2 class="section-title">How we say it</h2>
+    <p class="section-sub">These are the approved lines for ads, social, pitches, and headers. They should always feel calm, confident, and precise — never pushy.</p>
+
+    <div class="tagline-list">
+      <div class="tagline-item">
+        <span class="tagline-text">Find the right AI. Not just any AI.</span>
+        <span class="tagline-badge tb-primary">Primary tagline</span>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-text">Five questions. Three perfect tools.</span>
+        <span class="tagline-badge tb-alt">Short form</span>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-text">Stop guessing. Start matching.</span>
+        <span class="tagline-badge tb-alt">Ad variant</span>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-text">Your AI toolkit, perfectly curated.</span>
+        <span class="tagline-badge tb-alt">Newsletter header</span>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-text">500+ tools. One perfect match.</span>
+        <span class="tagline-badge tb-alt">Social variant</span>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-text">Less searching. More doing.</span>
+        <span class="tagline-badge tb-alt">Ad variant</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 06 VOICE & TONE -->
+  <div class="brand-section">
+    <p class="section-tag">06 — Voice & Tone</p>
+    <h2 class="section-title">How we speak</h2>
+    <p class="section-sub">PickMyAI sounds like a knowledgeable friend — honest, calm, and precise. Never hyped, never condescending, never vague.</p>
+
+    <div class="voice-grid">
+      <div class="voice-card do">
+        <p class="voice-label do">We do this</p>
+        <p class="voice-item">Write short, confident sentences</p>
+        <p class="voice-item">Give specific, honest reasons for each recommendation</p>
+        <p class="voice-item">Acknowledge trade-offs (e.g. "more powerful but pricier")</p>
+        <p class="voice-item">Use plain language anyone can understand</p>
+        <p class="voice-item">Speak directly to the user ("you", "your")</p>
+        <p class="voice-item">Lead with the most important information</p>
+      </div>
+      <div class="voice-card dont">
+        <p class="voice-label dont">We don't do this</p>
+        <p class="voice-item">Use AI buzzwords like "cutting-edge", "revolutionary", "game-changer"</p>
+        <p class="voice-item">Over-promise ("the best tool ever made")</p>
+        <p class="voice-item">Add unnecessary exclamation marks</p>
+        <p class="voice-item">Use passive voice or corporate-speak</p>
+        <p class="voice-item">Recommend sponsored tools without disclosure</p>
+        <p class="voice-item">Be vague ("great for many use cases")</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <p class="card-label">Tone examples</p>
+      <div class="card-body">
+        <strong>❌ Don't say:</strong> "Discover our revolutionary AI-powered matching engine that will transform how you interact with cutting-edge technology!"<br><br>
+        <strong>✅ Do say:</strong> "Answer five questions. Get three tools matched to your exact situation."<br><br>
+        <strong>❌ Don't say:</strong> "This amazing tool has tons of features that many users find super helpful!"<br><br>
+        <strong>✅ Do say:</strong> "Excels at long-form content — ideal if you're writing blogs or email sequences regularly."
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 07 UI ELEMENTS -->
+  <div class="brand-section">
+    <p class="section-tag">07 — UI Elements</p>
+    <h2 class="section-title">Buttons & components</h2>
+    <p class="section-sub">Consistent, rounded, and always intentional. Every element should feel considered.</p>
+
+    <div class="card">
+      <p class="card-label">Button styles</p>
+      <div class="pill-grid">
+        <div class="pill" style="background:linear-gradient(135deg,#7c6ef0,#a78bfa);color:white;box-shadow:0 3px 16px rgba(124,110,240,0.3)">Primary CTA</div>
+        <div class="pill" style="background:white;color:#3d3760;border:1px solid #e4deff">Secondary</div>
+        <div class="pill" style="background:#f0eeff;color:#7c6ef0;border:1px solid #c9bfff">Tertiary</div>
+        <div class="pill" style="background:transparent;color:#7c6ef0;border:1px solid #7c6ef0">Outlined</div>
+        <div class="pill" style="background:#1a1730;color:white">Dark</div>
+      </div>
+      <div class="card-body" style="margin-top:20px">
+        <strong>Border radius:</strong> Always 100px (fully rounded) for buttons and pills. 16–24px for cards.<br><br>
+        <strong>Padding:</strong> 13–15px vertical, 24–34px horizontal for full buttons. 6–8px vertical, 14–20px horizontal for small pills.<br><br>
+        <strong>Hover state:</strong> translateY(-1px to -2px) with increased box-shadow. Never change background on gradient buttons — use opacity instead.
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <p class="card-label">Spacing system</p>
+      <div class="card-body">
+        <strong>Section padding:</strong> 96px vertical on desktop, 64px on mobile.<br><br>
+        <strong>Card padding:</strong> 32–44px on desktop, 22–28px on mobile.<br><br>
+        <strong>Gap between elements:</strong> 8px (tight), 16px (standard), 24px (relaxed), 40px (section breathing room).<br><br>
+        <strong>Max content width:</strong> 940px for sections, 600px for the matcher card, 480px for email/centred content.
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 08 PHOTOGRAPHY / IMAGERY -->
+  <div class="brand-section">
+    <p class="section-tag">08 — Imagery</p>
+    <h2 class="section-title">Visual style</h2>
+    <p class="section-sub">PickMyAI is a digital-first product. We rely on colour, typography, and UI to communicate rather than stock photography. When imagery is needed, follow these principles.</p>
+
+    <div class="card">
+      <p class="card-label">If using photos</p>
+      <div class="card-body">
+        <strong>People:</strong> Real, candid, diverse. Never staged stock smiles. Show people actually working — at desks, on laptops, in creative spaces.<br><br>
+        <strong>Colour treatment:</strong> Apply a subtle lavender or violet colour grade to keep images on-brand. Avoid warm-heavy or high-saturation edits.<br><br>
+        <strong>Mood:</strong> Calm, focused, premium. Think editorial magazine, not startup cheerleader.<br><br>
+        <strong>Avoid:</strong> Generic "AI brain" graphics, neon robot imagery, cliché "holographic hands touching screens" stock photos.
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <p class="card-label">Iconography</p>
+      <div class="card-body">
+        <strong>Style:</strong> Use emoji for option icons inside the product (approachable, universal). Use simple SVG line icons for UI controls and navigation.<br><br>
+        <strong>Size:</strong> 18–22px for inline emoji in options. 14–16px for SVG UI icons.<br><br>
+        <strong>Colour:</strong> SVG icons inherit text colour. Never use multi-colour custom icons — keep them monochrome.
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 09 DON'TS -->
+  <div class="brand-section">
+    <p class="section-tag">09 — Brand Don'ts</p>
+    <h2 class="section-title">What to avoid</h2>
+    <p class="section-sub">Protecting the brand is as important as building it.</p>
+
+    <div class="card">
+      <div class="card-body">
+        <strong>Don't use the word "revolutionary" or "disruptive"</strong> — PickMyAI solves a real problem quietly and confidently.<br><br>
+        <strong>Don't use competitor names negatively</strong> — We don't need to put others down. We let results speak.<br><br>
+        <strong>Don't use dark patterns</strong> — No fake urgency, no misleading pricing, no hidden affiliate bias in recommendations.<br><br>
+        <strong>Don't let the gradient appear on text longer than 4 words</strong> — Gradient text is a premium accent, not a default text treatment.<br><br>
+        <strong>Don't place the logo on gradients or busy backgrounds</strong> without a white or dark solid container behind it.<br><br>
+        <strong>Don't mix fonts</strong> — Only Cormorant Garamond and DM Sans. No exceptions.
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div style="text-align:center;padding:40px 0 0;border-top:1px solid var(--lavender2)">
+    <p style="font-family:var(--serif);font-size:20px;font-weight:300;color:var(--ink);margin-bottom:8px">Questions about the brand?</p>
+    <p style="font-size:14px;color:var(--ink3);font-weight:300">This guide is a living document and will evolve as PickMyAI grows.</p>
+  </div>
+
+</div>
+
+<footer style="padding:26px 48px;border-top:1px solid rgba(196,181,253,0.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:var(--bg);position:relative;z-index:1">
+  <span style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);letter-spacing:0.02em">PickMyAI</span>
+  <span style="font-size:12px;color:var(--ink4);font-weight:300">Brand Guide · © 2026 PickMyAI</span>
+</footer>
+
+</body>
+</html>
