@@ -2,25 +2,16 @@
 
 **Find your perfect AI tool in under 2 minutes.**
 
-Answer 5 questions. Get 3 hand-picked AI tools matched to your needs, budget, and skill level — powered by Gemini AI.
+Answer 5 questions. Get 3 hand-picked AI tools matched to your goal, budget, skill level, and industry — powered by Google Gemini AI.
 
 ---
 
-## 🚀 Deploy to Vercel in 3 steps
+## 🚀 Deploy to Vercel
 
-1. Push this folder to a GitHub repo
-2. Go to vercel.com → Add New Project → Import from GitHub → select PickMyAI
-3. Add environment variable: `GEMINI_API_KEY` = your key
-4. Click Deploy — live in 30 seconds
-
----
-
-## 🔑 Get your Gemini API Key
-
-1. Go to https://aistudio.google.com/apikey
-2. Click "Create API Key"
-3. Copy it (starts with AIza...)
-4. Paste into Vercel environment variables as `GEMINI_API_KEY`
+1. Push this folder to GitHub
+2. Go to vercel.com → New Project → Import from GitHub
+3. Add environment variable: `GEMINI_API_KEY` = your key from aistudio.google.com
+4. Deploy
 
 ---
 
@@ -28,22 +19,29 @@ Answer 5 questions. Get 3 hand-picked AI tools matched to your needs, budget, an
 
 ```
 pickmyai/
-├── index.html          ← Main site
-├── brand.html          ← Internal brand guide (do not deploy publicly)
+├── index.html          ← Main app
+├── about.html          ← About page
+├── privacy.html        ← Privacy policy
+├── terms.html          ← Terms of use
+├── 404.html            ← Error page
+├── robots.txt          ← SEO
+├── sitemap.xml         ← SEO
 ├── vercel.json         ← Vercel config
-├── api/
-│   └── recommend.js    ← Serverless function (Gemini API proxy)
-└── README.md
+├── css/
+│   └── style.css       ← Shared design system
+├── js/
+│   └── main.js         ← Shared JavaScript
+└── api/
+    └── recommend.js    ← Gemini API proxy (serverless)
 ```
 
 ---
 
-## 💰 Monetisation Roadmap
+## 🔑 Environment Variables
 
-- **Affiliate links** — earn commission when users sign up via your links
-- **Email list** — weekly AI digest newsletter (connect Resend or Mailchimp)
-- **Premium tier** — saved results, comparison tool, personalised alerts
-- **API access** — let other developers use your recommendation engine
+| Variable | Description |
+|---|---|
+| `GEMINI_API_KEY` | Google AI Studio API key (required) |
 
 ---
 
