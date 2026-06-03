@@ -100,15 +100,15 @@ Return ONLY valid JSON array, no markdown, no explanation:
 
   for (const model of MODELS) {
     try {
-      const body = {
+      const geminiBody = {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: { temperature: 0.6, maxOutputTokens: 600 }
       };
-      if (model.search) body.tools = [{ googleSearch: {} }];
+      if (model.search) geminiBody.tools = [{ googleSearch: {} }];
 
       const r = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model.id}:generateContent?key=${GEMINI_KEY}`,
-        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(geminiBody) }
       );
 
       const data = await r.json();
