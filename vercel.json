@@ -1,6 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/(.*)", "destination": "/blog/$1" },
+    { "source": "/404", "destination": "/404.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -23,8 +28,5 @@
       "source": "/(.*)\\.html",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }]
     }
-  ],
-  "rewrites": [
-    { "source": "/404", "destination": "/404.html" }
   ]
 }

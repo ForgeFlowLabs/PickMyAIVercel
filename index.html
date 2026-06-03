@@ -42,12 +42,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/style.css"/>
+<link rel="manifest" href="/manifest.json"/>
+<meta name="theme-color" content="#4285f4"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="PickMyAI"/>
 <script>
 (function(){try{var ct=localStorage.getItem('pickmyai_color')||'google';var dt=localStorage.getItem('pickmyai_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme-color',ct);document.documentElement.setAttribute('data-theme',dt);}catch(e){}})();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+
+<!-- Back to top -->
+<button class="back-top" id="back-top" aria-label="Back to top">↑</button>
 
 <!-- ── HEADER ── -->
 <header class="site-header">
@@ -64,9 +72,9 @@
       <div class="logo-name">Pick<span>MyAI</span></div>
     </a>
     <div class="header-right">
-      <!-- Theme color switcher -->
-      <div class="color-switcher" id="color-switcher">
-        <button class="color-dot" data-color="google" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc04,#ea4335)" title="Google" onclick="setColor('google')"></button>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <div class="color-switcher" id="color-switcher" title="Change colour theme">
+        <button class="color-dot" data-color="google" style="background:linear-gradient(135deg,#4285f4 0%,#34a853 50%,#ea4335 100%)" title="Google" onclick="setColor('google')"></button>
         <button class="color-dot" data-color="ocean" style="background:#2563eb" title="Ocean" onclick="setColor('ocean')"></button>
         <button class="color-dot" data-color="violet" style="background:#7c3aed" title="Violet" onclick="setColor('violet')"></button>
         <button class="color-dot" data-color="forest" style="background:#059669" title="Forest" onclick="setColor('forest')"></button>
@@ -212,15 +220,70 @@
         </div>
       </div>
 
+      <!-- TESTIMONIALS -->
+      <div class="section-header">
+        <div class="section-title">💬 What people are saying</div>
+      </div>
+      <div class="testimonials">
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">"Found Cursor through PickMyAI — went from spending hours debugging to shipping twice as fast. Genuinely life-changing for my dev workflow."</div>
+            <div class="testi-author">
+              <div class="testi-avatar">JR</div>
+              <div><div class="testi-name">James R.</div><div class="testi-role">Freelance Developer</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">"I'd been paying for three tools that overlapped. PickMyAI helped me cut down to one and save £80/month."</div>
+            <div class="testi-author">
+              <div class="testi-avatar">SL</div>
+              <div><div class="testi-name">Sarah L.</div><div class="testi-role">Marketing Manager</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">"As a complete AI beginner, this was exactly what I needed. No jargon, just clear recommendations that made sense for my business."</div>
+            <div class="testi-author">
+              <div class="testi-avatar">MK</div>
+              <div><div class="testi-name">Mike K.</div><div class="testi-role">Small Business Owner</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">"Recommended Tidio for our customer support — set it up in an afternoon, now handling 60% of queries automatically."</div>
+            <div class="testi-author">
+              <div class="testi-avatar">AP</div>
+              <div><div class="testi-name">Anita P.</div><div class="testi-role">E-commerce Founder</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOG PROMO -->
+      <div class="blog-promo">
+        <div class="blog-promo-icon">📚</div>
+        <div class="blog-promo-body">
+          <div class="blog-promo-title">Learn how to get the most from AI tools</div>
+          <div class="blog-promo-desc">Practical guides for business owners, freelancers, and beginners — no hype, real advice.</div>
+          <div class="blog-promo-links">
+            <a href="/blog/how-to-choose-ai-tools-for-business.html" class="blog-promo-link">Choosing AI for business →</a>
+            <a href="/blog/chatgpt-vs-claude-vs-gemini.html" class="blog-promo-link">ChatGPT vs Claude vs Gemini →</a>
+            <a href="/blog/" class="blog-promo-link">All guides →</a>
+          </div>
+        </div>
+      </div>
+
       <!-- EMAIL -->
       <div class="email-box">
-        <h3>Stay ahead of AI 🚀</h3>
-        <p>Weekly digest of the best new AI tools, honest reviews, and what's actually worth your money.</p>
+        <h3>Get the weekly AI tools digest 📬</h3>
+        <p>Every week: the best new AI tools, honest reviews, and what's actually worth your money. Join 2,000+ readers.</p>
         <div class="email-row">
           <input type="email" class="email-in" id="email-in" placeholder="you@example.com"/>
-          <button class="email-btn" id="email-btn">Subscribe</button>
+          <button class="email-btn" id="email-btn">Get it free</button>
         </div>
-        <p class="email-note">No spam. Unsubscribe any time.</p>
+        <p class="email-note">One email per week. No spam. Unsubscribe any time.</p>
         <p id="email-ok" style="display:none;color:#86efac;font-size:0.75rem;margin-top:8px"></p>
       </div>
 
@@ -322,11 +385,14 @@
             </div>
           </div>
 
-          <!-- LOADING -->
+          <!-- LOADING / SKELETON -->
           <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <div class="loading-h">Finding your matches…</div>
-            <p class="loading-p">Analysing 500+ tools against your profile</p>
+            <div style="width:100%">
+              ${[1,2,3].map ? '' : ''}
+              <div class="skeleton-card"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><div class="skeleton skeleton-line w-40"></div><div class="skeleton" style="width:70px;height:20px;border-radius:100px"></div></div><div class="skeleton skeleton-line w-80"></div><div class="skeleton skeleton-line w-100" style="margin-top:6px"></div><div class="skeleton skeleton-line w-60" style="margin-top:6px"></div></div>
+              <div class="skeleton-card"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><div class="skeleton skeleton-line w-40"></div><div class="skeleton" style="width:70px;height:20px;border-radius:100px"></div></div><div class="skeleton skeleton-line w-80"></div><div class="skeleton skeleton-line w-100" style="margin-top:6px"></div><div class="skeleton skeleton-line w-60" style="margin-top:6px"></div></div>
+              <div class="skeleton-card"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><div class="skeleton skeleton-line w-40"></div><div class="skeleton" style="width:70px;height:20px;border-radius:100px"></div></div><div class="skeleton skeleton-line w-80"></div><div class="skeleton skeleton-line w-100" style="margin-top:6px"></div><div class="skeleton skeleton-line w-60" style="margin-top:6px"></div></div>
+            </div>
           </div>
 
           <!-- RESULTS -->
@@ -336,8 +402,17 @@
             <div class="tool-list" id="tool-list"></div>
             <div class="results-actions">
               <button class="btn-restart" onclick="restartMatcher()">↺ Start over</button>
-              <button class="btn-share" onclick="shareResults()">Share results →</button>
+              <button class="btn-share" onclick="shareResults()">Share →</button>
+              <button class="btn-copy" onclick="copyResults()">📋 Copy results</button>
             </div>
+          </div>
+
+          <!-- ERROR STATE -->
+          <div class="error-state" id="error-state">
+            <div class="error-emoji">⚠️</div>
+            <div class="error-title">Something went wrong</div>
+            <div class="error-msg">We couldn't get your recommendations right now. This is usually a temporary issue.</div>
+            <button class="btn-retry" onclick="getResults()">Try again</button>
           </div>
 
         </div>

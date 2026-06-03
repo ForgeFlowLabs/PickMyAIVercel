@@ -1,7 +1,7 @@
 // Apply saved themes immediately to avoid flash
 (function() {
   try {
-    var ct = localStorage.getItem('pickmyai_color') || 'violet';
+    var ct = localStorage.getItem('pickmyai_color') || 'google';
     var dt = localStorage.getItem('pickmyai_theme') ||
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme-color', ct);
@@ -28,6 +28,23 @@ function initTheme() {
     document.documentElement.setAttribute('data-theme', next);
     try { localStorage.setItem('pickmyai_theme', next); } catch(e) {}
     update();
+  });
+}
+
+// ── COLOR SWITCHER ────────────────────────────────────────────
+function setColor(color) {
+  document.documentElement.setAttribute('data-theme-color', color);
+  try { localStorage.setItem('pickmyai_color', color); } catch(e) {}
+  // Update active dot
+  document.querySelectorAll('.color-dot').forEach(d => {
+    d.classList.toggle('active', d.dataset.color === color);
+  });
+}
+
+function initColorSwitcher() {
+  const saved = localStorage.getItem('pickmyai_color') || 'google';
+  document.querySelectorAll('.color-dot').forEach(d => {
+    d.classList.toggle('active', d.dataset.color === saved);
   });
 }
 
@@ -186,26 +203,39 @@ function nextStep(from) {
 }
 function backStep(from) { showStep(from - 1); }
 
-async function getResults() {
-  if (!A.integration) return;
+async function getResults(){
+  if(!A.integration)return;
   syncURL(A);
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
   document.getElementById('results').classList.remove('on');
   document.getElementById('loading').classList.add('on');
-  document.getElementById('prog-fill').style.width = '100%';
+  const errEl = document.getElementById('error-state');
+  if (errEl) errEl.classList.remove('show');
+  document.getElementById('prog-fill').style.width='100%';
 
   let tools = null;
-  try {
-    const r = await fetch('/api/recommend', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(A)
+  try{
+    const r=await fetch('/api/recommend',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(A)
     });
-    const data = await r.json();
-    if (Array.isArray(data) && data.length === 3) tools = data;
-  } catch(e) { tools = null; }
+    const data=await r.json();
+    if(Array.isArray(data)&&data.length===3)tools=data;
+  }catch(e){tools=null;}
 
-  renderResults(tools || FALLBACKS[A.goal] || FALLBACKS.writing);
+  document.getElementById('loading').classList.remove('on');
+
+  if(!tools){
+    // Try fallback
+    tools = FALLBACKS[A.goal]||FALLBACKS.writing;
+    if (!tools) {
+      // Show error state
+      if (errEl) errEl.classList.add('show');
+      return;
+    }
+  }
+  renderResults(tools);
 }
 
 function renderResults(tools) {
@@ -254,6 +284,7 @@ function restartMatcher() {
 // ── INIT ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initColorSwitcher();
   initFAQ();
   initEmail();
 
@@ -262,6 +293,119 @@ document.addEventListener('DOMContentLoaded', () => {
   if (urlAnswers && document.getElementById('matcher-card')) {
     Object.assign(A, urlAnswers);
     // Pre-select options
+    Object.entries(urlAnswers).forEach(([key, val]) => {
+      const btn = document.querySelector(`[onclick*="'${key}','${val}'"]`);
+      if (btn) btn.classList.add('sel');
+    });
+    getResults();
+  }
+});
+
+// ── BACK TO TOP ──────────────────────────────────────────────
+function initBackToTop() {
+  const btn = document.getElementById('back-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+// ── READING PROGRESS ─────────────────────────────────────────
+function initReadingProgress() {
+  const bar = document.getElementById('reading-prog');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const total = document.body.scrollHeight - window.innerHeight;
+    const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+}
+
+// ── COPY RESULTS ─────────────────────────────────────────────
+function copyResults() {
+  const tools = document.querySelectorAll('.tool-item');
+  if (!tools.length) return;
+  let text = 'My AI tool matches from PickMyAI:\n\n';
+  tools.forEach((t, i) => {
+    const name = t.querySelector('.tool-name')?.textContent || '';
+    const why = t.querySelector('.tool-why')?.textContent || '';
+    const price = t.querySelector('.tool-price')?.textContent || '';
+    const url = t.querySelector('.tool-link')?.href || '';
+    text += `${i + 1}. ${name} — ${price}\n${why}\n${url}\n\n`;
+  });
+  text += 'Find your matches at: ' + window.location.href;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.btn-copy');
+    if (!btn) return;
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy results';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+// ── SKELETON LOADER ──────────────────────────────────────────
+function showSkeleton() {
+  const loading = document.getElementById('loading');
+  if (!loading) return;
+  loading.innerHTML = `
+    <div style="width:100%">
+      ${[1,2,3].map(() => `
+        <div class="skeleton-card">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+            <div class="skeleton skeleton-line w-40"></div>
+            <div class="skeleton" style="width:70px;height:20px;border-radius:100px"></div>
+          </div>
+          <div class="skeleton skeleton-line w-80"></div>
+          <div class="skeleton skeleton-line w-100" style="margin-top:6px"></div>
+          <div class="skeleton skeleton-line w-60" style="margin-top:6px"></div>
+          <div style="display:flex;justify-content:space-between;margin-top:10px">
+            <div class="skeleton skeleton-line w-40" style="height:10px"></div>
+            <div class="skeleton" style="width:80px;height:24px;border-radius:100px"></div>
+          </div>
+        </div>`).join('')}
+    </div>`;
+}
+
+// ── BLOG SEARCH ──────────────────────────────────────────────
+function initBlogSearch() {
+  const input = document.getElementById('blog-search-input');
+  if (!input) return;
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase().trim();
+    document.querySelectorAll('.post-card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('hidden', q.length > 0 && !text.includes(q));
+    });
+  });
+}
+
+// ── SERVICE WORKER ────────────────────────────────────────────
+function registerSW() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+}
+
+// ── UPDATED INIT ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  initColorSwitcher();
+  initFAQ();
+  initEmail();
+  initBackToTop();
+  initReadingProgress();
+  initBlogSearch();
+  registerSW();
+
+  const urlAnswers = getURLAnswers();
+  if (urlAnswers && document.getElementById('matcher-card')) {
+    Object.assign(A, urlAnswers);
     Object.entries(urlAnswers).forEach(([key, val]) => {
       const btn = document.querySelector(`[onclick*="'${key}','${val}'"]`);
       if (btn) btn.classList.add('sel');
