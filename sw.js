@@ -1,6 +1,6 @@
 const CACHE = 'pickmyai-v1';
 const STATIC = [
-  '/', '/index.html', '/css/style.css', '/js/main.js',
+  '/', '/index.html', '/css/style.min.css', '/js/main.min.js',
   '/blog/', '/blog/index.html', '/offline.html'
 ];
 
