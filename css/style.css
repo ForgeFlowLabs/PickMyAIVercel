@@ -636,3 +636,192 @@ h1 span { color:var(--brand); }
 .author-name { font-size:0.88rem; font-weight:700; color:var(--gray-900); margin-bottom:3px; }
 .author-title { font-size:0.75rem; color:var(--brand); font-weight:500; margin-bottom:6px; }
 .author-desc { font-size:0.78rem; color:var(--gray-500); line-height:1.6; }
+
+/* ============================================================
+   MOBILE-FIRST RESPONSIVE OVERHAUL
+   Tested breakpoints: 320px, 375px, 390px, 414px, 768px, 1024px
+   ============================================================ */
+
+/* ── 480px and below (small phones — iPhone SE etc) ── */
+@media(max-width:480px) {
+  /* Base */
+  html { font-size:14px; }
+
+  /* Header */
+  .header-inner { height:52px; padding:0 1rem; gap:6px; }
+  .logo-name { font-size:1rem; }
+  .logo-mark { width:28px; height:28px; border-radius:7px; }
+  .btn-cta { padding:6px 12px; font-size:0.75rem; }
+  .color-switcher { display:none; }
+  .nav-link { display:none; }
+  .theme-btn { width:28px; height:28px; font-size:13px; }
+
+  /* Trust bar — single row scroll */
+  .trust-bar {
+    justify-content:flex-start;
+    overflow-x:auto; flex-wrap:nowrap;
+    padding:6px 1rem; gap:1rem;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .trust-bar::-webkit-scrollbar { display:none; }
+  .trust-item { white-space:nowrap; flex-shrink:0; }
+
+  /* Hero */
+  .hero { padding:1.25rem 1rem 1.5rem; }
+  .hero-badge { font-size:0.7rem; padding:3px 10px; margin-bottom:0.75rem; }
+  h1 { font-size:1.6rem; letter-spacing:-0.02em; line-height:1.2; margin-bottom:0.6rem; }
+  .hero-p { font-size:0.88rem; margin-bottom:1.1rem; }
+  .hero-btns { flex-direction:column; gap:8px; }
+  .hero-btns .btn { width:100%; justify-content:center; padding:12px 20px; }
+  .hero-stats { gap:0.75rem; padding-top:1rem; margin-top:1.25rem; overflow-x:auto; flex-wrap:nowrap; }
+  .hero-stat span { font-size:1.15rem; }
+  .hero-stat small { font-size:0.65rem; }
+  .hero-divider { display:none; }
+
+  /* Page wrap */
+  .page-wrap { padding:0.75rem; }
+
+  /* How grid — single column */
+  .how-grid { grid-template-columns:1fr; gap:0.6rem; }
+  .how-card { padding:1rem; }
+  .how-num { font-size:1.4rem; margin-bottom:0.4rem; }
+  .how-t { font-size:0.82rem; }
+  .how-d { font-size:0.74rem; }
+
+  /* Features list */
+  .feature-item { padding:0.875rem 1rem; gap:8px; }
+  .feature-ico { width:30px; height:30px; font-size:15px; border-radius:8px; flex-shrink:0; }
+  .feature-t { font-size:0.82rem; }
+  .feature-d { font-size:0.73rem; }
+
+  /* Matcher card */
+  .matcher-card { border-radius:var(--radius-lg); }
+  .matcher-body { padding:1rem; }
+  .step-q { font-size:0.95rem; }
+  .step-hint { font-size:0.74rem; margin-bottom:0.85rem; }
+  .step-label { font-size:0.65rem; }
+  .opts-2 { grid-template-columns:1fr 1fr; gap:5px; }
+  .opt { padding:8px 10px; gap:7px; }
+  .opt-ico { font-size:14px; width:22px; }
+  .opt-t { font-size:0.75rem; }
+  .opt-d { font-size:0.65rem; }
+  .btn-next { padding:9px 20px; font-size:0.82rem; }
+
+  /* Results */
+  .results-h { font-size:0.9rem; }
+  .results-sub { font-size:0.7rem; }
+  .tool-item { padding:11px 12px; }
+  .tool-name { font-size:0.88rem; }
+  .tool-tag { font-size:0.68rem; }
+  .tool-why { font-size:0.75rem; margin-bottom:8px; }
+  .tool-price { font-size:0.74rem; }
+  .tool-link { font-size:0.7rem; padding:4px 10px; }
+  .results-actions { gap:6px; flex-wrap:wrap; }
+  .btn-restart, .btn-share, .btn-copy { padding:7px 12px; font-size:0.74rem; flex:1; justify-content:center; }
+
+  /* FAQ */
+  .faq-q { padding:0.8rem 1rem; font-size:0.82rem; }
+  .faq-a-inner { padding:0 1rem 0.875rem; font-size:0.78rem; }
+
+  /* Blog promo */
+  .blog-promo { padding:1.1rem; gap:0.875rem; flex-direction:column; }
+  .blog-promo-icon { font-size:1.8rem; }
+  .blog-promo-title { font-size:0.88rem; }
+  .blog-promo-desc { font-size:0.75rem; }
+  .blog-promo-link { font-size:0.72rem; padding:4px 10px; }
+
+  /* Email box */
+  .email-box { padding:1.5rem 1rem; border-radius:var(--radius-xl); }
+  .email-box h3 { font-size:1rem; }
+  .email-box p { font-size:0.78rem; margin-bottom:1rem; }
+  .email-row { flex-direction:column; gap:8px; }
+  .email-in { min-width:unset; width:100%; border-radius:100px; }
+  .email-btn { width:100%; text-align:center; }
+
+  /* Footer */
+  .site-footer { padding:1.25rem 1rem; }
+  .footer-inner { gap:0.75rem; }
+  .footer-logo { font-size:0.88rem; }
+  .footer-links { gap:0.875rem; }
+  .footer-links a { font-size:0.72rem; }
+  .footer-copy { font-size:0.65rem; }
+
+  /* Blog listing */
+  .blog-hero { padding:1.25rem 1rem; }
+  .blog-hero h1 { font-size:1.35rem; }
+  .blog-hero p { font-size:0.82rem; }
+  .posts-grid { grid-template-columns:1fr; }
+  .cat-tabs { gap:6px; overflow-x:auto; flex-wrap:nowrap; padding-bottom:4px; }
+  .cat-tab { white-space:nowrap; flex-shrink:0; padding:6px 14px; font-size:0.75rem; }
+
+  /* Blog post */
+  .blog-wrap { padding:1rem 0.875rem; }
+  .post-h1 { font-size:1.35rem; line-height:1.2; }
+  .post-body { font-size:0.88rem; }
+  .post-body h2 { font-size:1.1rem; }
+  .post-body h3 { font-size:0.92rem; }
+  .callout,.tip-box,.warn-box { padding:0.875rem 1rem; font-size:0.82rem; }
+  .related-grid { grid-template-columns:1fr; }
+  .post-cta { padding:1.25rem; }
+  .post-cta h3 { font-size:0.95rem; }
+  .author-bio { flex-direction:column; padding:1rem; }
+
+  /* Back to top */
+  .back-top { bottom:1rem; right:1rem; width:36px; height:36px; font-size:14px; }
+}
+
+/* ── 375px and below (iPhone 12 mini, SE) ── */
+@media(max-width:375px) {
+  h1 { font-size:1.4rem; }
+  .opts-2 { grid-template-columns:1fr; }
+  .opt { padding:9px 12px; }
+  .hero-stats { gap:0.6rem; }
+  .btn-cta { display:none; } /* too cramped — use scroll CTA */
+}
+
+/* ── 768px tablets ── */
+@media(min-width:481px) and (max-width:768px) {
+  html { font-size:14.5px; }
+  .header-inner { padding:0 1.25rem; }
+  .page-wrap { padding:1rem; }
+  .hero { padding:1.75rem 1.5rem; }
+  h1 { font-size:2rem; }
+  .hero-stats { gap:1rem; }
+  .how-grid { grid-template-columns:1fr 1fr; }
+  .opts-2 { grid-template-columns:1fr 1fr; }
+  .matcher-body { padding:1.25rem; }
+  .step-q { font-size:1rem; }
+  .email-row { flex-direction:column; gap:8px; }
+  .email-in,.email-btn { width:100%; }
+  .blog-hero h1 { font-size:1.6rem; }
+  .posts-grid { grid-template-columns:1fr 1fr; }
+  .blog-wrap { padding:1.5rem 1rem; }
+  .post-h1 { font-size:1.6rem; }
+  .related-grid { grid-template-columns:1fr 1fr; }
+  .color-switcher { display:none; }
+}
+
+/* ── 1024px tablets landscape ── */
+@media(min-width:769px) and (max-width:1024px) {
+  .page-wrap { padding:1.25rem; }
+  .two-col { grid-template-columns:1fr 380px; gap:1.25rem; }
+  .matcher-card { top:72px; }
+  .how-grid { grid-template-columns:1fr 1fr; }
+  .opts-2 { grid-template-columns:1fr 1fr; }
+}
+
+/* ── Touch devices — better tap targets ── */
+@media(hover:none) and (pointer:coarse) {
+  .opt { min-height:48px; }
+  .btn-next,.btn-restart,.btn-share,.btn-copy { min-height:44px; }
+  .cat-tab { min-height:40px; }
+  .faq-q { min-height:48px; }
+  .theme-btn { min-height:36px; min-width:36px; }
+  .tool-link { min-height:34px; padding:6px 14px; }
+}
+
+/* ── Prevent horizontal scroll on all viewports ── */
+body, html { overflow-x:hidden; max-width:100vw; }
+img, svg, video { max-width:100%; }
+.trust-bar, .hero-stats, .cat-tabs { -webkit-overflow-scrolling:touch; }
