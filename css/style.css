@@ -1,3 +1,7 @@
+/* Font display swap — shows text immediately while custom fonts load */
+@font-face { font-family:'Inter'; font-display:swap; src:local('Inter'); }
+@font-face { font-family:'JetBrains Mono'; font-display:swap; src:local('JetBrains Mono'); }
+
 /* ============================================================
    PickMyAI — Design System v1 (2026)
    Matches CalcHub quality standard
@@ -825,3 +829,10 @@ h1 span { color:var(--brand); }
 body, html { overflow-x:hidden; max-width:100vw; }
 img, svg, video { max-width:100%; }
 .trust-bar, .hero-stats, .cat-tabs { -webkit-overflow-scrolling:touch; }
+
+/* Accessibility: improved contrast for small text */
+.step-label { color:var(--gray-500) !important; }
+.post-date { color:var(--gray-500) !important; }
+.swatch-hex { color:var(--gray-500) !important; }
+.footer-copy { color:var(--gray-500) !important; }
+.hero-stat small { color:var(--gray-500) !important; }

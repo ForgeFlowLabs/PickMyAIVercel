@@ -50,11 +50,20 @@ function initFAQ() {
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-q');
     if (!q) return;
-    q.addEventListener('click', () => {
+    const toggle = () => {
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        const iq = i.querySelector('.faq-q');
+        if (iq) iq.setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        q.setAttribute('aria-expanded','true');
+      }
+    };
+    q.addEventListener('click', toggle);
+    q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
   });
 }
 
