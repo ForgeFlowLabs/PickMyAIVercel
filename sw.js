@@ -1,4 +1,4 @@
-const CACHE = 'pickmyai-v2';
+const CACHE = 'pickmyai-v3';
 
 // Only cache local files - never external domains
 const STATIC = [
