@@ -12,10 +12,27 @@
 <link rel="apple-touch-icon" href="/icons/logo.png"/>
 <link rel="icon" type="image/png" href="/icons/logo.png"/><rect width='100' height='100' rx='22' fill='%234285f4'/><circle cx='30' cy='30' r='16' fill='%23fff'/><circle cx='70' cy='30' r='16' fill='%23ea4335'/><circle cx='30' cy='70' r='16' fill='%2334a853'/><circle cx='70' cy='70' r='16' fill='%23fbbc04'/></svg>"/>
 </head><body>
-<header class="site-header"><div class="header-inner"><a class="logo" href="/">
-      <img src="icons/logo.png" alt="PickMyAI logo" height="32" width="32" style="border-radius:8px;object-fit:contain"/>
+<button class="back-top" id="back-top" aria-label="Back to top">↑</button>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/">
+      <img src="/icons/logo.png" alt="PickMyAI" height="36" width="36" style="height:36px;width:36px;object-fit:contain;flex-shrink:0"/>
       <div class="logo-name">Pick<span>MyAI</span></div>
-    </a><div class="header-right"><button class="theme-btn" id="theme-btn">🌙</button></div></div></header>
+    </a>
+    <div class="header-right">
+      <a href="/blog" class="nav-link">Blog</a>
+      <div class="color-switcher" id="color-switcher" title="Change colour theme">
+        <button class="color-dot" data-color="google" style="background:linear-gradient(135deg,#4285f4 0%,#34a853 50%,#ea4335 100%)" title="Google" onclick="setColor('google')"></button>
+        <button class="color-dot" data-color="ocean" style="background:#2563eb" title="Ocean" onclick="setColor('ocean')"></button>
+        <button class="color-dot" data-color="violet" style="background:#7c3aed" title="Violet" onclick="setColor('violet')"></button>
+        <button class="color-dot" data-color="forest" style="background:#059669" title="Forest" onclick="setColor('forest')"></button>
+        <button class="color-dot" data-color="rose" style="background:#e11d48" title="Rose" onclick="setColor('rose')"></button>
+      </div>
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode">🌙</button>
+      <a href="/" class="btn-cta" style="text-decoration:none">Find my tools →</a>
+    </div>
+  </div>
+</header>
 <div class="page-wrap" style="max-width:680px">
 <div style="padding:2rem 0">
 <h1 style="font-size:1.8rem;margin-bottom:1rem">Terms of Use</h1>

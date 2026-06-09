@@ -1,6 +1,16 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/ai-tools-beginners-guide", "destination": "/blog/ai-tools-beginners-guide.html" },
+    { "source": "/blog/ai-tools-freelancers", "destination": "/blog/ai-tools-freelancers.html" },
+    { "source": "/blog/best-ai-tools-personal-productivity", "destination": "/blog/best-ai-tools-personal-productivity.html" },
+    { "source": "/blog/best-ai-tools-small-business", "destination": "/blog/best-ai-tools-small-business.html" },
+    { "source": "/blog/chatgpt-vs-claude-vs-gemini", "destination": "/blog/chatgpt-vs-claude-vs-gemini.html" },
+    { "source": "/blog/free-ai-tools-2026", "destination": "/blog/free-ai-tools-2026.html" },
+    { "source": "/blog/how-to-choose-ai-tools-for-business", "destination": "/blog/how-to-choose-ai-tools-for-business.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
